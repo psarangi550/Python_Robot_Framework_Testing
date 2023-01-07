@@ -1,8 +1,8 @@
 {
-  "robot.pythonpath": [
-      "~/lib/",
-      "${workspaceFolder}/lib",
-      "${env:MYROOT}/lib"
-    ],
+  // "robot.pythonpath": [
+  //     "~/lib/",
+  //     "${workspaceFolder}/lib",
+  //     "${env:MYROOT}/lib"
+  //   ],
     "jira-plugin.workingProject": ""
 }

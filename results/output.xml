@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.9.13 on win32)" generated="20230108 00:00:34.664" rpa="false" schemaversion="3">
+<suite id="s1" name="Python Robot Framework Testing" source="C:\Users\psara\Downloads\Python_Robot_Framework_Testing">
+<suite id="s1-s1" name="Resources" source="C:\Users\psara\Downloads\Python_Robot_Framework_Testing\Resources">
+<suite id="s1-s1-s1" name="Reading Json Element Locator" source="C:\Users\psara\Downloads\Python_Robot_Framework_Testing\Resources\reading_json_element_locator.robot">
+<test id="s1-s1-s1-t1" name="TC01 READ DATA FROM JSON" line="14">
+<kw name="RC01 EXECUTE PYTHON SCRIPT_NEW">
+<var>${OUTPUT}</var>
+<arg>Registration.username_text</arg>
+<kw name="Get Jsonpath" library="read_locator">
+<var>${TOTAL}</var>
+<arg>${locator_item}</arg>
+<msg timestamp="20230108 00:00:37.571" level="INFO">${TOTAL} = ['fld_username']</msg>
+<status status="PASS" starttime="20230108 00:00:37.558" endtime="20230108 00:00:37.572"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${OUT}</var>
+<arg>${TOTAL}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230108 00:00:37.579" level="INFO">${OUT} = fld_username</msg>
+<status status="PASS" starttime="20230108 00:00:37.573" endtime="20230108 00:00:37.581"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Function Return</arg>
+<arg>is ${OUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230108 00:00:37.582" endtime="20230108 00:00:37.586"/>
+</kw>
+<msg timestamp="20230108 00:00:37.587" level="INFO">${OUTPUT} = fld_username</msg>
+<status status="PASS" starttime="20230108 00:00:37.556" endtime="20230108 00:00:37.590"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Output is ${OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230108 00:00:37.644" endtime="20230108 00:00:37.691"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230108 00:00:37.742" level="INFO">Opening browser 'Chrome' to base url 'https://www.thetestingworld.com/testings/'.</msg>
+<status status="PASS" starttime="20230108 00:00:37.737" endtime="20230108 00:00:46.455"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230108 00:00:46.462" endtime="20230108 00:00:46.743"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>1 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20230108 00:00:46.745" endtime="20230108 00:00:46.747"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:${OUTPUT}</arg>
+<arg>pratik</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230108 00:00:46.757" level="INFO">Typing text 'pratik' into text field 'name:fld_username'.</msg>
+<status status="PASS" starttime="20230108 00:00:46.753" endtime="20230108 00:00:50.370"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230108 00:00:50.372" endtime="20230108 00:00:55.017"/>
+</kw>
+<status status="PASS" starttime="20230108 00:00:37.552" endtime="20230108 00:00:55.021"/>
+</test>
+<status status="PASS" starttime="20230108 00:00:35.189" endtime="20230108 00:00:55.032"/>
+</suite>
+<status status="PASS" starttime="20230108 00:00:34.922" endtime="20230108 00:00:55.039"/>
+</suite>
+<status status="PASS" starttime="20230108 00:00:34.706" endtime="20230108 00:00:55.044"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Python Robot Framework Testing">Python Robot Framework Testing</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Resources">Python Robot Framework Testing.Resources</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Reading Json Element Locator">Python Robot Framework Testing.Resources.Reading Json Element Locator</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
