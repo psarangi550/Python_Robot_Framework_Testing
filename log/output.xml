@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.7 on win32)" generated="20230105 21:12:10.913" rpa="false" schemaversion="3">
+<suite id="s1" name="TC15 User Defined Ketword from python" source="C:\Users\psara\Downloads\Python_Robot_Framework_Testing\TestCases\TC15_User_Defined_Ketword_from_python.robot">
+<test id="s1-t1" name="TC01_TEST_USER_DEFINED_KEY_WITH_ARGS_AND_RETURN_VALUE" line="11">
+<kw name="RC01_CREATE_FOLDER_AND_SUB_FOLDER" library="Custom_keyword_using_python">
+<arg>${FOLDER_NAME}</arg>
+<kw name="Create Folder" library="create_folder_sub_folder">
+<var>${RES}</var>
+<arg>${FOLDER_NAME}</arg>
+<msg timestamp="20230105 21:12:10.953" level="INFO">${RES} = False</msg>
+<status status="PASS" starttime="20230105 21:12:10.953" endtime="20230105 21:12:10.956"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${RES}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230105 21:12:10.957" level="INFO">False</msg>
+<status status="PASS" starttime="20230105 21:12:10.956" endtime="20230105 21:12:10.957"/>
+</kw>
+<status status="PASS" starttime="20230105 21:12:10.952" endtime="20230105 21:12:10.957"/>
+</kw>
+<status status="PASS" starttime="20230105 21:12:10.951" endtime="20230105 21:12:10.957"/>
+</test>
+<status status="PASS" starttime="20230105 21:12:10.916" endtime="20230105 21:12:10.958"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC15 User Defined Ketword from python">TC15 User Defined Ketword from python</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
