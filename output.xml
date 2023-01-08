@@ -1,68 +1,229 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.9.13 on win32)" generated="20230108 00:00:31.249" rpa="false" schemaversion="3">
-<suite id="s1" name="Reading Json Element Locator" source="c:\Users\psara\Downloads\Python_Robot_Framework_Testing\Resources\reading_json_element_locator.robot">
-<test id="s1-t1" name="TC01 READ DATA FROM JSON" line="14">
-<kw name="RC01 EXECUTE PYTHON SCRIPT_NEW">
-<var>${OUTPUT}</var>
-<arg>Registration.username_text</arg>
-<kw name="Get Jsonpath" library="read_locator">
-<var>${TOTAL}</var>
-<arg>${locator_item}</arg>
-<msg timestamp="20230108 00:00:32.121" level="INFO">${TOTAL} = ['fld_username']</msg>
-<status status="PASS" starttime="20230108 00:00:32.117" endtime="20230108 00:00:32.125"/>
-</kw>
-<kw name="Get From List" library="Collections">
-<var>${OUT}</var>
-<arg>${TOTAL}</arg>
-<arg>0</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<msg timestamp="20230108 00:00:32.127" level="INFO">${OUT} = fld_username</msg>
-<status status="PASS" starttime="20230108 00:00:32.126" endtime="20230108 00:00:32.128"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Function Return</arg>
-<arg>is ${OUT}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230108 00:00:32.128" endtime="20230108 00:00:32.130"/>
-</kw>
-<msg timestamp="20230108 00:00:32.130" level="INFO">${OUTPUT} = fld_username</msg>
-<status status="PASS" starttime="20230108 00:00:32.115" endtime="20230108 00:00:32.131"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Output is ${OUTPUT}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230108 00:00:32.131" endtime="20230108 00:00:32.133"/>
-</kw>
+<robot generator="Robot 6.0.1 (Python 3.9.13 on win32)" generated="20230108 17:13:13.909" rpa="false" schemaversion="3">
+<suite id="s1" name="TC17 Read Excel Test" source="c:\Users\psara\Downloads\Python_Robot_Framework_Testing\TestCases\TC17_Read_Excel_Test.robot">
+<kw name="RC01_Start_Max_Browser" library="fetch_data_from_excel_robot" type="SETUP">
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${URL}</arg>
-<arg>${BROWSER}</arg>
+<arg>${Browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230108 00:00:32.137" level="INFO">Opening browser 'Chrome' to base url 'https://www.thetestingworld.com/testings/'.</msg>
-<status status="PASS" starttime="20230108 00:00:32.135" endtime="20230108 00:00:39.135"/>
+<msg timestamp="20230108 17:13:15.150" level="INFO">Opening browser 'Chrome' to base url 'https://thetestingworld.com/testings/'.</msg>
+<status status="PASS" starttime="20230108 17:13:15.150" endtime="20230108 17:13:28.772"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230108 00:00:39.141" endtime="20230108 00:00:39.366"/>
+<status status="PASS" starttime="20230108 17:13:28.772" endtime="20230108 17:13:28.951"/>
 </kw>
-<kw name="Set Selenium Speed" library="SeleniumLibrary">
-<arg>1 seconds</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20230108 00:00:39.368" endtime="20230108 00:00:39.369"/>
+<status status="PASS" starttime="20230108 17:13:15.149" endtime="20230108 17:13:28.953"/>
+</kw>
+<test id="s1-t1" name="TC01_Testing_Excel_With_Data_Driven" line="17">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${location_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230108 17:13:28.957" endtime="20230108 17:13:28.958"/>
+</kw>
+<kw name="RC03_Read_Max_ROW" library="fetch_data_from_excel_robot">
+<var>${row_val}</var>
+<arg>${location_name}</arg>
+<arg>${sheet_name}</arg>
+<kw name="Fetch Rows From Excel" library="read_data_excel_robot">
+<var>${row_no}</var>
+<arg>${location}</arg>
+<arg>${sheetname}</arg>
+<msg timestamp="20230108 17:13:28.978" level="INFO">${row_no} = 2</msg>
+<status status="PASS" starttime="20230108 17:13:28.961" endtime="20230108 17:13:28.978"/>
+</kw>
+<msg timestamp="20230108 17:13:28.979" level="INFO">${row_val} = 2</msg>
+<status status="PASS" starttime="20230108 17:13:28.959" endtime="20230108 17:13:28.981"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${counter}</var>
+<value>1</value>
+<value>${row_val}+1</value>
+<value>1</value>
+<iter>
+<var name="${counter}">1</var>
+<kw name="R05_click_on_btn" library="fetch_data_from_excel_robot">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://label[@for='tab2']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230108 17:13:28.986" level="INFO">Clicking element 'xpath://label[@for='tab2']'.</msg>
+<status status="PASS" starttime="20230108 17:13:28.985" endtime="20230108 17:13:29.100"/>
+</kw>
+<status status="PASS" starttime="20230108 17:13:28.984" endtime="20230108 17:13:29.101"/>
+</kw>
+<kw name="R04_Read_Cell_Value" library="fetch_data_from_excel_robot">
+<var>${username}</var>
+<arg>${location_name}</arg>
+<arg>${sheet_name}</arg>
+<arg>${counter}</arg>
+<arg>1</arg>
+<kw name="Fetch All Row Column" library="read_data_excel_robot">
+<var>${row_val}</var>
+<arg>${location}</arg>
+<arg>${sheetname}</arg>
+<arg>${row}</arg>
+<arg>${column}</arg>
+<msg timestamp="20230108 17:13:29.122" level="INFO">${row_val} = pratik</msg>
+<status status="PASS" starttime="20230108 17:13:29.104" endtime="20230108 17:13:29.122"/>
+</kw>
+<msg timestamp="20230108 17:13:29.122" level="INFO">${username} = pratik</msg>
+<status status="PASS" starttime="20230108 17:13:29.101" endtime="20230108 17:13:29.123"/>
+</kw>
+<kw name="R04_Read_Cell_Value" library="fetch_data_from_excel_robot">
+<var>${password}</var>
+<arg>${location_name}</arg>
+<arg>${sheet_name}</arg>
+<arg>${counter}</arg>
+<arg>2</arg>
+<kw name="Fetch All Row Column" library="read_data_excel_robot">
+<var>${row_val}</var>
+<arg>${location}</arg>
+<arg>${sheetname}</arg>
+<arg>${row}</arg>
+<arg>${column}</arg>
+<msg timestamp="20230108 17:13:29.138" level="INFO">${row_val} = pratik123</msg>
+<status status="PASS" starttime="20230108 17:13:29.124" endtime="20230108 17:13:29.138"/>
+</kw>
+<msg timestamp="20230108 17:13:29.139" level="INFO">${password} = pratik123</msg>
+<status status="PASS" starttime="20230108 17:13:29.123" endtime="20230108 17:13:29.139"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230108 17:13:29.139" endtime="20230108 17:13:29.140"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230108 17:13:29.140" endtime="20230108 17:13:29.141"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
-<arg>name:${OUTPUT}</arg>
-<arg>pratik</arg>
+<arg>name:_txtUserName</arg>
+<arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230108 00:00:39.374" level="INFO">Typing text 'pratik' into text field 'name:fld_username'.</msg>
-<status status="PASS" starttime="20230108 00:00:39.372" endtime="20230108 00:00:43.202"/>
+<msg timestamp="20230108 17:13:29.142" level="INFO">Typing text 'pratik' into text field 'name:_txtUserName'.</msg>
+<status status="PASS" starttime="20230108 17:13:29.141" endtime="20230108 17:13:29.326"/>
 </kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:_txtPassword</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230108 17:13:29.328" level="INFO">Typing text 'pratik123' into text field 'name:_txtPassword'.</msg>
+<status status="PASS" starttime="20230108 17:13:29.327" endtime="20230108 17:13:29.453"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value='Login']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230108 17:13:29.455" level="INFO">Clicking element 'xpath://input[@value='Login']'.</msg>
+<status status="PASS" starttime="20230108 17:13:29.454" endtime="20230108 17:13:30.037"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230108 17:13:33.039" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230108 17:13:30.037" endtime="20230108 17:13:33.039"/>
+</kw>
+<status status="PASS" starttime="20230108 17:13:28.983" endtime="20230108 17:13:33.039"/>
+</iter>
+<iter>
+<var name="${counter}">2</var>
+<kw name="R05_click_on_btn" library="fetch_data_from_excel_robot">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://label[@for='tab2']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230108 17:13:33.041" level="INFO">Clicking element 'xpath://label[@for='tab2']'.</msg>
+<status status="PASS" starttime="20230108 17:13:33.040" endtime="20230108 17:13:33.099"/>
+</kw>
+<status status="PASS" starttime="20230108 17:13:33.040" endtime="20230108 17:13:33.100"/>
+</kw>
+<kw name="R04_Read_Cell_Value" library="fetch_data_from_excel_robot">
+<var>${username}</var>
+<arg>${location_name}</arg>
+<arg>${sheet_name}</arg>
+<arg>${counter}</arg>
+<arg>1</arg>
+<kw name="Fetch All Row Column" library="read_data_excel_robot">
+<var>${row_val}</var>
+<arg>${location}</arg>
+<arg>${sheetname}</arg>
+<arg>${row}</arg>
+<arg>${column}</arg>
+<msg timestamp="20230108 17:13:33.112" level="INFO">${row_val} = abi</msg>
+<status status="PASS" starttime="20230108 17:13:33.103" endtime="20230108 17:13:33.112"/>
+</kw>
+<msg timestamp="20230108 17:13:33.112" level="INFO">${username} = abi</msg>
+<status status="PASS" starttime="20230108 17:13:33.100" endtime="20230108 17:13:33.112"/>
+</kw>
+<kw name="R04_Read_Cell_Value" library="fetch_data_from_excel_robot">
+<var>${password}</var>
+<arg>${location_name}</arg>
+<arg>${sheet_name}</arg>
+<arg>${counter}</arg>
+<arg>2</arg>
+<kw name="Fetch All Row Column" library="read_data_excel_robot">
+<var>${row_val}</var>
+<arg>${location}</arg>
+<arg>${sheetname}</arg>
+<arg>${row}</arg>
+<arg>${column}</arg>
+<msg timestamp="20230108 17:13:33.129" level="INFO">${row_val} = rika1997</msg>
+<status status="PASS" starttime="20230108 17:13:33.113" endtime="20230108 17:13:33.129"/>
+</kw>
+<msg timestamp="20230108 17:13:33.130" level="INFO">${password} = rika1997</msg>
+<status status="PASS" starttime="20230108 17:13:33.112" endtime="20230108 17:13:33.130"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230108 17:13:33.131" endtime="20230108 17:13:33.134"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230108 17:13:33.134" endtime="20230108 17:13:33.135"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:_txtUserName</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230108 17:13:33.135" level="INFO">Typing text 'abi' into text field 'name:_txtUserName'.</msg>
+<status status="PASS" starttime="20230108 17:13:33.135" endtime="20230108 17:13:33.340"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:_txtPassword</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230108 17:13:33.341" level="INFO">Typing text 'rika1997' into text field 'name:_txtPassword'.</msg>
+<status status="PASS" starttime="20230108 17:13:33.340" endtime="20230108 17:13:33.490"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value='Login']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230108 17:13:33.491" level="INFO">Clicking element 'xpath://input[@value='Login']'.</msg>
+<status status="PASS" starttime="20230108 17:13:33.490" endtime="20230108 17:13:34.492"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230108 17:13:37.506" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230108 17:13:34.493" endtime="20230108 17:13:37.507"/>
+</kw>
+<status status="PASS" starttime="20230108 17:13:33.040" endtime="20230108 17:13:37.509"/>
+</iter>
+<status status="PASS" starttime="20230108 17:13:28.982" endtime="20230108 17:13:37.509"/>
+</for>
+<status status="PASS" starttime="20230108 17:13:28.955" endtime="20230108 17:13:37.511"/>
+</test>
+<kw name="RC02_Close_Browser" library="fetch_data_from_excel_robot" type="TEARDOWN">
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230108 00:00:43.281" endtime="20230108 00:00:47.959"/>
+<status status="PASS" starttime="20230108 17:13:37.521" endtime="20230108 17:13:43.875"/>
 </kw>
-<status status="PASS" starttime="20230108 00:00:32.113" endtime="20230108 00:00:47.961"/>
-</test>
-<status status="PASS" starttime="20230108 00:00:31.268" endtime="20230108 00:00:47.972"/>
+<status status="PASS" starttime="20230108 17:13:37.520" endtime="20230108 17:13:43.875"/>
+</kw>
+<status status="PASS" starttime="20230108 17:13:13.920" endtime="20230108 17:13:43.875"/>
 </suite>
 <statistics>
 <total>
@@ -71,7 +232,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Reading Json Element Locator">Reading Json Element Locator</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC17 Read Excel Test">TC17 Read Excel Test</stat>
 </suite>
 </statistics>
 <errors>

@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.9.13 on win32)" generated="20230107 23:47:16.236" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.1 (Python 3.9.13 on win32)" generated="20230108 17:02:13.308" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot Interactive Console" source="C:\Users\psara\scoop\persist\vscodium\data\extensions\robocorp.robotframework-lsp-1.7.3-universal\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
 <test id="s1-t1" name="Default Task/Test" line="5">
 <kw name="Interpreter Main Loop" library="MainLoop">
-<kw name="RC01 EXECUTE PYTHON SCRIPT_NEW">
-<arg>"Registration.username_text"</arg>
-<msg timestamp="20230107 23:47:18.311" level="FAIL">No keyword with name 'RC01 EXECUTE PYTHON SCRIPT_NEW' found.</msg>
-<status status="FAIL" starttime="20230107 23:47:18.309" endtime="20230107 23:47:18.311"/>
+<status status="PASS" starttime="20230108 17:02:13.332" endtime="20230108 17:02:15.332"/>
 </kw>
-<status status="PASS" starttime="20230107 23:47:16.319" endtime="20230107 23:47:30.530"/>
-</kw>
-<status status="PASS" starttime="20230107 23:47:16.317" endtime="20230107 23:47:30.531"/>
+<status status="PASS" starttime="20230108 17:02:13.331" endtime="20230108 17:02:15.333"/>
 </test>
-<status status="PASS" starttime="20230107 23:47:16.241" endtime="20230107 23:47:30.534"/>
+<status status="PASS" starttime="20230108 17:02:13.311" endtime="20230108 17:02:15.334"/>
 </suite>
 <statistics>
 <total>
